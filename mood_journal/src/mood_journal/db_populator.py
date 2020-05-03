@@ -1,6 +1,10 @@
 class DBPopulator():
     """ Creates the whole DB with it's collections from scratch """
 
+    def __init__(self):
+        # self.mongoengine_connection = # create the connection here
+        pass
+
     def create_reason_field(self, reason_str):
         """ Create a sad / happy reason field, from a given reasons string """
         pass
