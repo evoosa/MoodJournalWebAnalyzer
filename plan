@@ -1,0 +1,25 @@
+LEVEL I - create the whole DB from scratch
+
+create functions:
+    get the results CSV from google docs
+    turn the whole CSV to a dict of it rows
+        handle the keys - turn them to english
+    add more keys to document (a SINGLE document)
+        uniques date, and more - look at the scheme!
+    create the collections scheme, using mongo engine's DynamicDocument scheme
+        https://docs.mongoengine.org/guide/defining-documents.html
+    handle the sad/happy_reasons list in the values when adding the doc to the DB
+        will need to plan it according to the sad/happy_reasons collection
+        - go over the value, split it by ','
+        - go over the list's elements. for each, add a refernce to the reason document, in the X_reasons collection
+        it will look like:
+            create_db
+                add_document (for each element in the CSV dict)
+                    create_reason_field (for each document)
+    create the X_reasons collections
+        yes, create them separately from the forms collections.
+        - it might be slower, but less error prone!
+
+LEVEL II - append to the DB instead of recreating it
+
+LEVEL III - handle CSV versions, in order to update the WHOLE DB with changes that were made, instead of only appending to it
