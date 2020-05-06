@@ -45,9 +45,3 @@ class Forms(Document):
     to_keep = StringField(required=True)
     to_improve = StringField(required=True)
     meta = {'collection': FORMS_COLLECTION_NAME}
-
-
-class TempForms(Document):
-    """ Definition for the forms collection """
-    saddest = IntField(required=True)
-    sad_reasons = ListField(ReferenceField(SadReasons, reverse_delete_rule='DENY'), required=True)
