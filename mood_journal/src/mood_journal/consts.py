@@ -31,5 +31,6 @@ RESULTS_CSV_HEADERS_TO_DB_KEYS_MAPPING = {
     'מה הפיל אותך?': 'detox_pitfalls',
     'מה תשפרי להבא?': 'to_improve',
     'מה תשמרי להבא?': 'to_keep',
-    'על איזה תאריך מילאת?': 'timestamp'
+    'על איזה תאריך מילאת?': 'timestamp',
+    'שימי תזכורת': 'reminder_date'
 }
