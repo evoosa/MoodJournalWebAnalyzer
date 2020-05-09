@@ -1,5 +1,5 @@
 from mongoengine import Document
-from mongoengine.fields import IntField, StringField, ListField, DateTimeField, DateField, ReferenceField, MapField
+from mongoengine.fields import IntField, StringField, ListField, DateTimeField, DateField, LazyReferenceField, MapField
 from datetime import datetime
 from .consts import FORMS_COLLECTION_NAME, HAPPY_REASONS_COLLECTION_NAME, SAD_REASONS_COLLECTION_NAME, DETOX_FAIL_REASONS_COLLECTION_NAME
 
@@ -38,10 +38,10 @@ class Forms(Document):
     modified_time = DateTimeField(default=datetime.now)
     saddest = IntField(required=True)
     happiest = IntField(required=True)
-    happy_reasons = ListField(ReferenceField(HappyReasons, reverse_delete_rule='DENY'), required=True)
-    sad_reasons = ListField(ReferenceField(SadReasons, reverse_delete_rule='DENY'), required=True)
+    happy_reasons = ListField(LazyReferenceField(HappyReasons, reverse_delete_rule='DENY', dbref=True), required=True)
+    sad_reasons = ListField(LazyReferenceField(SadReasons, reverse_delete_rule='DENY'), required=True, dbref=True)
     detox_prog = IntField(required=True)
-    detox_pitfalls = ListField(ReferenceField(DetoxFailReasons, reverse_delete_rule='DENY'), required=True)
+    detox_pitfalls = ListField(LazyReferenceField(DetoxFailReasons, reverse_delete_rule='DENY'), required=True, dbref=True)
     to_keep = StringField(required=True)
     to_improve = StringField(required=True)
     meta = {'collection': FORMS_COLLECTION_NAME}
