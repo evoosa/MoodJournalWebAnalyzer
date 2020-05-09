@@ -34,3 +34,5 @@ RESULTS_CSV_HEADERS_TO_DB_KEYS_MAPPING = {
     'על איזה תאריך מילאת?': 'timestamp',
     'שימי תזכורת': 'reminder_date'
 }
+
+REASON_FIELDS = ['sad_reasons', 'happy_reasons', 'detox_pitfalls']
