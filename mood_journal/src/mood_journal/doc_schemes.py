@@ -34,14 +34,14 @@ class DetoxFailReasons(Document):
 class Forms(Document):
     """ Definition for the forms collection """
     timestamp = DateField(required=True, primary_key=True)
-    submission_timestamp = DateTimeField(required=True)
+    sub_timestamp = DateTimeField(required=True)
     modified_time = DateTimeField(default=datetime.now)
     saddest = IntField(required=True)
     happiest = IntField(required=True)
-    happy_reasons = ListField(LazyReferenceField(HappyReasons, reverse_delete_rule='DENY', dbref=True), required=True)
-    sad_reasons = ListField(LazyReferenceField(SadReasons, reverse_delete_rule='DENY'), required=True, dbref=True)
+    happy_reasons = ListField(LazyReferenceField(HappyReasons, reverse_delete_rule='DENY', dbref=False), required=True)
+    sad_reasons = ListField(LazyReferenceField(SadReasons, reverse_delete_rule='DENY'), required=False, dbref=True)
     detox_prog = IntField(required=True)
-    detox_pitfalls = ListField(LazyReferenceField(DetoxFailReasons, reverse_delete_rule='DENY'), required=True, dbref=True)
+    detox_pitfalls = ListField(LazyReferenceField(DetoxFailReasons, reverse_delete_rule='DENY'), required=False, dbref=True)
     to_keep = StringField(required=True)
     to_improve = StringField(required=True)
     meta = {'collection': FORMS_COLLECTION_NAME}
