@@ -33,14 +33,14 @@ class DetoxFailReasons(Document):
 
 class Forms(Document):
     """ Definition for the forms collection """
-    date = DateField(required=True, primary_key=True)
+    timestamp = DateField(required=True, primary_key=True)
     submission_timestamp = DateTimeField(required=True)
     modified_time = DateTimeField(default=datetime.now)
     saddest = IntField(required=True)
     happiest = IntField(required=True)
     happy_reasons = ListField(ReferenceField(HappyReasons, reverse_delete_rule='DENY'), required=True)
     sad_reasons = ListField(ReferenceField(SadReasons, reverse_delete_rule='DENY'), required=True)
-    detox_progress = IntField(required=True)
+    detox_prog = IntField(required=True)
     detox_pitfalls = ListField(ReferenceField(DetoxFailReasons, reverse_delete_rule='DENY'), required=True)
     to_keep = StringField(required=True)
     to_improve = StringField(required=True)

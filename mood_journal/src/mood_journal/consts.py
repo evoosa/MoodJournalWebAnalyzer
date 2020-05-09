@@ -21,3 +21,15 @@ RESULTS_DIR = WIN_RESULTS_DIR if os.name == 'nt' else LIN_RESULTS_DIR
 RESULTS_CSV_FILENAME = 'form_results-{curr_datetime}.csv'.format(curr_datetime=datetime.now().strftime("%m-%d-%Y_%H-%M"))
 RESULTS_CSV_PATH = os.path.join(RESULTS_DIR, RESULTS_CSV_FILENAME)
 
+RESULTS_CSV_HEADERS_TO_DB_KEYS_MAPPING = {
+    'Timestamp': 'sub_timestamp',
+    'מה ההכי נמוך שהיה לך היום?': 'saddest',
+    'מה תרם לתחושה השלילית?': 'sad_reasons',
+    'מה ההכי גבוה שהיה לך היום?': 'happiest',
+    'מה תרם לתחושה החיובית?': 'happy_reasons',
+    'האם את מרוצה מההתקדמות בגמילה היום?': 'detox_prog',
+    'מה הפיל אותך?': 'detox_pitfalls',
+    'מה תשפרי להבא?': 'to_improve',
+    'מה תשמרי להבא?': 'to_keep',
+    'על איזה תאריך מילאת?': 'timestamp'
+}
