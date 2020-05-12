@@ -43,8 +43,7 @@ def convert_csv_headers_to_db_keys() -> list:
     return new_headers
     pass
 
-
 def connect_to_db():
     connect(db=MOOD_JOURNAL_DB_NAME, host=DB_HOST, port=DB_PORT)
 
-    # TODO - manage versions of the CSV, delete the ones that are older than a week, or keep 7 copies, pasten
+# TODO - manage versions of the CSV, delete the ones that are older than a week, or keep 7 copies, pasten

@@ -11,7 +11,8 @@ class HappyReasons(Document):
     """ a class for the Reasons to be Happy today """
     modified_time = DateTimeField(default=datetime.now)
     happy_reason = StringField(required=True, primary_key=True)
-    happy_rates_freq = MapField(IntField(required=False, default=0), required=False)
+    # TODO - instead, create indexes for these fields
+    # happy_rates_freq = MapField(IntField(required=False, default=0), required=False)
     meta = {'collection': HAPPY_REASONS_COLLECTION_NAME}
 
 
@@ -19,7 +20,7 @@ class SadReasons(Document):
     """ a class for the Reasons to be Sad today """
     modified_time = DateTimeField(default=datetime.now)
     sad_reason = StringField(required=True, primary_key=True)
-    sad_rates_freq = MapField(IntField(required=False, default=0), required=False)
+    # sad_rates_freq = MapField(IntField(required=False, default=0), required=False)
     meta = {'collection': SAD_REASONS_COLLECTION_NAME}
 
 
@@ -27,7 +28,7 @@ class DetoxFailReasons(Document):
     """ a class for the Reasons i Failed the Dopamine Detox today """
     modified_time = DateTimeField(default=datetime.now)
     detox_fail_reason = StringField(required=True, primary_key=True)
-    detox_rates_freq = MapField(IntField(required=False, default=0), required=False)
+    # detox_rates_freq = MapField(IntField(required=False, default=0), required=False)
     meta = {'collection': DETOX_FAIL_REASONS_COLLECTION_NAME}
 
 

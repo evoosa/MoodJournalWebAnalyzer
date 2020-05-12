@@ -18,7 +18,8 @@ class DBPopulator():
         for field in parsed_row_dict:
             if field in REASON_FIELDS:
                 value = parsed_row_dict[field]
-                field_value = value.split(',') if not type(value) is float else []
+                field_value_unstripped = value.split(',') if not type(value) is float else []
+                field_value = [reason.strip() for reason in field_value_unstripped]
             else:
                 field_value = parsed_row_dict[field]
             setattr(form_doc, field, field_value)
@@ -32,6 +33,19 @@ class DBPopulator():
         pass
 
     def populate_reasons_collection(self):
-        """ Create the collections containing the sad / happy reasons """
+        """ Create the collections containing the different reasons """
         # query the db in a way youll get a list of unique values for the sad/happy reasons already added!
+        pass
+
+    def populate_happy_reasons_collection(self):
+        """ Create the Happy Reasons collection """
+        # query the db in a way youll get a list of unique values for the sad/happy reasons already added!
+        pass
+
+    def populate_sad_reasons_collection(self):
+        """ Create the Sad Reasons collection """
+        pass
+
+    def populate_detox_fail_reasons_collection(self):
+        """ Create the Detox Failure Reasons collection """
         pass
