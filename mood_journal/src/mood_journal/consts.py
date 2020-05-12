@@ -6,9 +6,13 @@ DB_PORT = 27017
 
 MOOD_JOURNAL_DB_NAME = 'mj'
 FORMS_COLLECTION_NAME = 'forms'
-SAD_REASONS_COLLECTION_NAME = 'sad_reasons'
-HAPPY_REASONS_COLLECTION_NAME = 'happy_reasons'
-DETOX_FAIL_REASONS_COLLECTION_NAME = 'detox_fail_reasons'
+
+SAD_REASONS_FIELD_NAME = 'sad_reason'
+HAPPY_REASONS_FIELD_NAME = 'happy_reason'
+DETOX_FAIL_REASONS_FIELD_NAME = 'detox_fail_reason'
+SAD_REASONS_COLLECTION_NAME = SAD_REASONS_FIELD_NAME + 's'
+HAPPY_REASONS_COLLECTION_NAME = HAPPY_REASONS_FIELD_NAME + 's'
+DETOX_FAIL_REASONS_COLLECTION_NAME = DETOX_FAIL_REASONS_FIELD_NAME + 's'
 
 MOOD_JOURNAL_FORM_ID = '1UWZwqU-RE8WvqWc5NOHNhhWGzbHFOtkDymwwcD938ww'
 FORM_RESULTS_URL = 'https://docs.google.com/spreadsheets/d/{form_id}/export?exportFormat=csv'.format(form_id=MOOD_JOURNAL_FORM_ID)
@@ -24,15 +28,15 @@ RESULTS_CSV_PATH = os.path.join(RESULTS_DIR, RESULTS_CSV_FILENAME)
 RESULTS_CSV_HEADERS_TO_DB_KEYS_MAPPING = {
     'Timestamp': 'sub_timestamp',
     'מה ההכי נמוך שהיה לך היום?': 'saddest',
-    'מה תרם לתחושה השלילית?': 'sad_reasons',
+    'מה תרם לתחושה השלילית?': SAD_REASONS_COLLECTION_NAME,
     'מה ההכי גבוה שהיה לך היום?': 'happiest',
-    'מה תרם לתחושה החיובית?': 'happy_reasons',
+    'מה תרם לתחושה החיובית?': HAPPY_REASONS_COLLECTION_NAME,
     'האם את מרוצה מההתקדמות בגמילה היום?': 'detox_prog',
-    'מה הפיל אותך?': 'detox_pitfalls',
+    'מה הפיל אותך?': DETOX_FAIL_REASONS_COLLECTION_NAME,
     'מה תשפרי להבא?': 'to_improve',
     'מה תשמרי להבא?': 'to_keep',
     'על איזה תאריך מילאת?': 'timestamp',
     'שימי תזכורת': 'reminder_date'
 }
 
-REASON_FIELDS = ['sad_reasons', 'happy_reasons', 'detox_pitfalls']
+REASON_FIELDS = [SAD_REASONS_COLLECTION_NAME, HAPPY_REASONS_COLLECTION_NAME, DETOX_FAIL_REASONS_COLLECTION_NAME]
